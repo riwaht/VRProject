@@ -36,9 +36,10 @@ while True:
              # in open cv, the x and y values are reversed so we need to reverse them (they are in top left corner, unity is in bottom right corner)
              # we need to reverse the y value so that it is in the same direction as unity
             data.extend([lm[0], heightCam - lm[1], lm[2]])
-    # send the data to unity
-    sock.sendTo(str.encode(str(data)), serverAddressPort)
+        # send the data to unity
+        sock.sendTo(str.encode(str(data)), serverAddressPort)
     
+    img = cv2.resize(img, (0,0), None, 0.5, 0.5)
     cv2.imshow("Image", img)
     cv2.waitKey(1)
     
